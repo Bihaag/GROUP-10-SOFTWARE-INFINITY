@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Selected Job</title>
+    <style>
+    /* Style the table */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        background-color: #fff;
+        color: #212529;
+      }
+
+      /* Style the table header */
+      th {
+        font-weight: 600;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: middle;
+      }
+      h1 {
+			text-align: center;
+			margin-top: 50px;
+			color: #555;
+		}
+
+      form {
+			max-width: 500px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+      /* Style the table rows */
+      tr {
+        border: 1px solid #dee2e6;
+      }
+
+      /* Style the table cells */
+      td {
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: middle;
+      }
+
+
+
+
+
+
+
+      label {
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      textarea {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      /* style for job details */
+      .job-details {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      .job-details p {
+        margin: 5px 0;
+      }
+
+      .job-details h2 {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Available Jobs</h1>
+    <form>
+      <table>
+        <thead>
+          <tr>
+            <th>Job ID</th>
+            <th>Job Title</th>
+            <th>Job Description</th>
+            <th>Faculty</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in jobs %}
+          <tr>
+            <td>{{ job[0] }}</td>
+            <td>{{ job[1] }}</td>
+            <td>{{ job[2] }}</td>
+            <td>{{ job[3] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <li><a href="/addjob">Add New Job</a></li>
+    </form>
+    <form method="POST" action="{{ url_for('select_job') }}">
+      <label for="selected_job">Selected Job:</label>
+      <input type="text" id="selected_job" name="selected_job">
+      <input type="submit" value="Submit">
+    </form>
+    {% if job %}
+    <div class="job-details">
+      <h2>Job Details:</h2>
+      <p><b>Job ID:</b> {{ job[0] }}</p>
+      <p><b>Job Title:</b> {{ job[1] }}</p>
+      <p><b>Job Description:</b> {{ job[2] }}</p>
+    </div>
+    {% endif %}
+  </body>
+</html>
