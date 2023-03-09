@@ -30,10 +30,44 @@
 		a:hover {
 			color: #333;
 		}
+		nav {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		nav li {
+			float: left;
+		}
+		nav li a {
+			display: block;
+			color: #fff;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		nav li a:hover {
+			background-color: #555;
+		}
 	</style>
 </head>
 <body>
 	<h1>Profile Not Found</h1>
+	<nav>
+		<ul>
+		  <li><a href="#">Home</a></li>
+		  <li><a href="#">Profile</a></li>
+		  <li><a href="#">Settings</a></li>
+		  <li><a href="/selectedFile">Jobs</a></li>
+		  <li><a href="/">Logout</a></li>
+		</ul>
+	  </nav>
 	<section>
 		<p>We're sorry, but we couldn't find your profile. It looks like you don't have an account yet. Please click the link below to register.</p>
 		<a href="/register">Register Now</a>
