@@ -1,0 +1,165 @@
+<head>
+  <title>Update Job</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #555;
+}
+
+input[type="hidden"] {
+  display: none;
+}
+/* Style the table rows */
+tr {
+        border: 1px solid #dee2e6;
+      }
+
+      /* Style the table cells */
+      td {
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: middle;
+      }
+      nav {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		nav li {
+			float: left;
+		}
+		nav li a {
+			display: block;
+			color: #fff;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		nav li a:hover {
+			background-color: #555;
+		}
+		section {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+    button[type="submit"] {
+      display: block;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+      footer {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+		}
+
+  </style>
+</head>
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Job</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/loggedin">Home</a></li>
+        <li><a href="/updateadminprofile">Profile</a></li>
+        <li><a href="/selectedFile">Jobs</a></li>
+        <li><a href="/applications">Applications</a></li>
+        <li style="float: right;">
+          <form1 action="/logout" method="post">
+            <button type="submit">Logout</button>
+          </form1>
+          </li>
+      </ul>
+    </nav>
+    <h1>Update Job</h1>
+    <form method="POST" action="/updateJob">
+      <input type="hidden" name="job_id" value="{{ job[0] }}">
+      <label for="job_title">Job Title:</label>
+      <input type="text" name="job_title" value="{{ job[1] }}"><br>
+      <label for="job_desc">Job Description:</label>
+      <textarea name="job_desc">{{ job[2] }}</textarea><br>
+      <label for="faculty">Faculty:</label>
+      <input type="text" name="faculty" value="{{ job[3] }}"><br>
+      <input type="submit" value="Update Job">
+    </form>
+    <footer>
+      <p>&copy; 2023 DUT ONLINE JOB APPLICATIONS</p>
+    </footer>
+  </body>
+</html>

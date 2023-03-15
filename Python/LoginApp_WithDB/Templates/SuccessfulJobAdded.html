@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Job Added Successful</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			color: #555;
+		}
+		section {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		p {
+			text-align: center;
+			margin-top: 20px;
+			color: #555;
+		}
+		a {
+			display: block;
+			text-align: center;
+			margin-top: 20px;
+			color: #555;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #333;
+		}
+        nav {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		nav li {
+			float: left;
+		}
+		nav li a {
+			display: block;
+			color: #fff;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		nav li a:hover {
+			background-color: #555;
+		
+		}
+		.container {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+	  .button {
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+      
+      .button:hover {
+        background-color: #3e8e41;
+      }
+
+      button[type="submit"] {
+      display: block;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      }
+		button[type="submit"] {
+      display: block;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      }
+	  footer {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+		}
+		
+	</style>
+</head>
+<body>
+    <nav>
+		<ul>
+		  <li><a href="/loggedinapplicant">Home</a></li>
+		  <li><a href="/updateadminprofile">Profile</a></li>
+		  <li><a href="/selectedFile">Jobs</a></li>
+		  <li><a href="/applications">Applications</a></li>
+		  <!--<li><a href="/">Logout</a></li>-->
+		  <li style="float: right;">
+			<form1 action="/logout" method="post">
+			  <button type="submit">Logout</button>
+			</form1>
+		  </li>
+		  <li><img src="./Images/The_Durban_University_of_Technology_new_log.png" alt="Logo"></li>
+		</ul>
+	
+	  </nav>
+	  <div class="container">
+		<h1>Successfully Added Job</h1>
+		<p>Your job position has been added successfully and is currently Live</p>
+		<br>
+		<a href="/loggedin" class="button" style="display: block; margin: 0 auto;">Back to Dashboard</a>
+	  </div>
+	  <footer>
+		<p>&copy; 2023 DUT ONLINE JOB APPLICATIONS</p>
+	</footer>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>User Registration</title>
+	<title>Job Posting</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
@@ -71,42 +71,60 @@
 		nav li a:hover {
 			background-color: #555;
 		}
+		button[type="submit"] {
+      display: block;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      }
+	  footer {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+		}
 	</style>
 </head>
-<body>
-	<h1>User Registration</h1>
+  <body>
+    
 	<nav>
 		<ul>
-		  <li><a href="#">Home</a></li>
-		  <li><a href="#">Profile</a></li>
-		  <li><a href="#">Settings</a></li>
+		  <li><a href="/loggedin">Home</a></li>
+		  <li><a href="/updateadminprofile">Profile</a></li>
 		  <li><a href="/selectedFile">Jobs</a></li>
-		  <li><a href="/">Logout</a></li>
-		  <li><img src="./Images/The_Durban_University_of_Technology_new_log.png" alt="Logo"></li>
+		  <li><a href="/applications">Applications</a></li>
+		  <!--<li><a href="/">Logout</a></li>-->
+		  <li style="float: right;">
+			<form1 action="/logout" method="post">
+			  <button type="submit">Logout</button>
+			</form1>
+		  </li>
+		  
 		</ul>
+	
 	  </nav>
-	<form action="/register" method="post">
-		<label for="name">Name:</label>
-		<input type="text" id="name" name="name" required>
-		
-		<label for="surname">Surname:</label>
-		<input type="text" id="surname" name="surname" required>
+	  <h1>Job Posting</h1>
+    <form action="/addjob" method="POST" action="/submit-job">
+      <label for="jobtitle">Job Title:</label>
+      <input type="text" name="jobtitle" id="job-title">
 
-		<label for="email">Email:</label>
-		<input type="email" id="email" name="email" required>
-		
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" required>
-		
-		<select name="user_type">
-			<option value="Admin">Admin</option>
-			<option value="Applicant">Applicant</option>
-		  </select>
+      <label for="jobdescription">Job Description:</label>
+      <textarea name="jobdescription" id="jobdescription"></textarea>
 
-		<input type="submit" value="Register">
-		<a href="/">Login</a>
+      <label for="faculty">Faculty:</label>
+      <input type="text" name="faculty" id="faculty">
 
-	</form>
-</body>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+  <footer>
+	<p>&copy; 2023 DUT ONLINE JOB APPLICATIONS</p>
+</footer>
 </html>
-

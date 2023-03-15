@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update User Information</title>
+    <style>
+      /* Set the font family and size */
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+      }
+
+      /* Style the form */
+      form {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+      /* Style the input fields */
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      /* Style the submit button */
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+
+      /* Style the headings */
+      h1 {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        background-color: #fff;
+        color: #212529;
+      }
+
+      /* Style the table header */
+      th {
+        font-weight: 600;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: middle;
+      }
+      h1 {
+			text-align: center;
+			margin-top: 50px;
+			color: #555;
+		}
+    form {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+    
+      /* Style the table rows */
+      tr {
+        border: 1px solid #dee2e6;
+      }
+
+      /* Style the table cells */
+      td {
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: middle;
+      }
+      nav {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		nav li {
+			float: left;
+		}
+		nav li a {
+			display: block;
+			color: #fff;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		nav li a:hover {
+			background-color: #555;
+		}
+		section {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+    button[type="submit"] {
+      display: block;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      }
+      footer {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+		}
+    </style>
+  </head>
+  
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/loggedinapplicant">Home</a></li>
+        <li><a href="/updateuserprofile">Profile</a></li>
+        <li><a href="/jobstatus">Status</a></li>
+        <li><a href="/availablejobs">Available Jobs</a></li>
+        <!--<li><a href="/">Logout</a></li>-->
+        <li style="float: right;">
+          <form action="/logout" method="post">
+            <button type="submit">Logout</button>
+          </form>
+        </li>
+
+      </ul>
+  
+    </nav>
+    <h1>Update User Information</h1>
+    <form action="/updateuserprofile" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="{{ user_data[0] }}">
+      <br>
+      <label for="surname">Email:</label>
+      <input type="text" id="surname" name="surname" value="{{ user_data[1] }}">
+      <br>
+      <label for="email">Password:</label>
+      <input type="text" id="email" name="email" value="{{ user_data[2] }}">
+      <br>
+      <input type="submit" value="Update">
+    </form>
+    <footer>
+      <p>&copy; 2023 DUT ONLINE JOB APPLICATIONS</p>
+    </footer>
+  </body>
+</html>
+

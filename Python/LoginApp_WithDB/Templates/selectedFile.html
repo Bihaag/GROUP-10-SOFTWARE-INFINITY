@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Selected Job</title>
+    <title>Applied Jobs</title>
     <style>
-    /* Style the table */
+      	body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+      /* Style the table */
     table {
         border-collapse: collapse;
         width: 100%;
@@ -28,12 +32,13 @@
 		}
 
       form {
-			max-width: 500px;
+			max-width: 700px;
 			margin: 0 auto;
 			padding: 20px;
 			background-color: #fff;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		}
+    
       /* Style the table rows */
       tr {
         border: 1px solid #dee2e6;
@@ -45,12 +50,6 @@
         padding: 0.75rem;
         vertical-align: middle;
       }
-
-
-
-
-
-
 
       label {
         margin-bottom: 5px;
@@ -89,9 +88,101 @@
       .job-details h2 {
         margin-bottom: 10px;
       }
+
+      th {
+        font-weight: 600;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: middle;
+      }
+      h1 {
+			text-align: center;
+			margin-top: 50px;
+			color: #555;
+		}
+
+    
+      /* Style the table rows */
+      tr {
+        border: 1px solid #dee2e6;
+      }
+
+      /* Style the table cells */
+      td {
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: middle;
+      }
+      nav {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		nav li {
+			float: left;
+		}
+		nav li a {
+			display: block;
+			color: #fff;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		nav li a:hover {
+			background-color: #555;
+		}
+		section {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+    button[type="submit"] {
+      display: block;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      }
+      footer {
+		background-color: #333;
+		color: #fff;
+		padding: 5px;
+		flex-shrink: 0;
+		bottom: 0;
+		width: 100%;
+		height: 50px;
+		text-align: center;
+		}
     </style>
   </head>
   <body>
+    <nav>
+      <ul>
+        <li><a href="/loggedin">Home</a></li>
+        <li><a href="/updateadminprofile">Profile</a></li>
+        <li><a href="/selectedFile">Jobs</a></li>
+        <li><a href="/applications">Applications</a></li>
+        <li style="float: right;">
+          <form action="/logout" method="post">
+            <button type="submit">Logout</button>
+          </form>
+          </li>
+      </ul>
+    </nav>
     <h1>Available Jobs</h1>
     <form>
       <table>
@@ -101,6 +192,7 @@
             <th>Job Title</th>
             <th>Job Description</th>
             <th>Faculty</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -110,17 +202,31 @@
             <td>{{ job[1] }}</td>
             <td>{{ job[2] }}</td>
             <td>{{ job[3] }}</td>
+            <td>
+              <form method="POST" action="{{ url_for('delete_job') }}">
+                <input type="hidden" name="job_id" value="{{ job[0] }}">
+                <button type="submit">Delete</button>
+              </form>
+            </td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
       <li><a href="/addjob">Add New Job</a></li>
     </form>
+    
     <form method="POST" action="{{ url_for('select_job') }}">
       <label for="selected_job">Selected Job:</label>
-      <input type="text" id="selected_job" name="selected_job">
+      <select id="selected_job" name="selected_job">
+        {% for job in jobs %}
+        <option value="{{ job[0] }}">{{ job[0] }}</option>
+        {% endfor %}
+      </select>
+      <br>
+      <br>
       <input type="submit" value="Submit">
     </form>
+    
     {% if job %}
     <div class="job-details">
       <h2>Job Details:</h2>
@@ -129,5 +235,9 @@
       <p><b>Job Description:</b> {{ job[2] }}</p>
     </div>
     {% endif %}
+   
   </body>
+  <footer>
+    <p>&copy; 2023 DUT ONLINE JOB APPLICATIONS</p>
+  </footer>
 </html>

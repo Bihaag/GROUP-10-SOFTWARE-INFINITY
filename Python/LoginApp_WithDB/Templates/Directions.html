@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Directions</title>
+    <style>
+      body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+      /* Set the height of the map */
+      #map {
+        height: 100%;
+      }
+      /* Set the height of the container element */
+      #map-container {
+        height: 500px;
+      }
+
+      tr {
+        border: 1px solid #dee2e6;
+      }
+
+      /* Style the table cells */
+      td {
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: middle;
+      }
+      nav {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		nav li {
+			float: left;
+		}
+		nav li a {
+			display: block;
+			color: #fff;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		nav li a:hover {
+			background-color: #555;
+		}
+		section {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+    button[type="submit"] {
+      display: block;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      }
+      button {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+      form {
+			max-width: 500px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+    footer {
+		background-color: #333;
+		color: #fff;
+		padding: 5px;
+		flex-shrink: 0;
+		bottom: 0;
+		width: 100%;
+		height: 50px;
+		text-align: center;
+		}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/loggedinapplicant">Home</a></li>
+        <li><a href="/updateuserprofile">Profile</a></li>
+        <li><a href="/jobstatus">Status</a></li>
+        <li><a href="/availablejobs">Available Jobs</a></li>
+        <!--<li><a href="/">Logout</a></li>-->
+        <li style="float: right;">
+          <form1 action="/logout" method="post">
+            <button type="submit">Logout</button>
+          </form1>
+        </li>
+        <li><img src="./Images/The_Durban_University_of_Technology_new_log.png" alt="Logo"></li>
+      </ul>
+
+    </nav>
+    <form>
+    <h1>Directions</h1>
+  
+    <div id="map-container">
+      <div id="map"></div>
+    </div>
+  </form>
+    <script>
+        function displayMap() {
+          // Get the address inputted by the user
+          const currentLocation = document.getElementById("current-location").value;
+                // Create a new map object
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 14,
+      });
+      
+      // Get the directions from the API and display on the map
+      const directionsRenderer = new google.maps.DirectionsRenderer();
+      directionsRenderer.setMap(map);
+      const directionsService = new google.maps.DirectionsService();
+      const request = {
+        origin: currentLocation,
+        destination: "7 Ritson Rd, Musgrave, Berea, 4001",
+        travelMode: "DRIVING",
+      };
+      directionsService.route(request, function(result, status) {
+        if (status == "OK") {
+          directionsRenderer.setDirections(result);
+        }
+      });
+    }
+    
+    // Call the function to display the map with directions
+    displayMap();
+  </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCetlNWp-FhPUoELs7RpJReUO6UHJeEelM&callback=initMap"></script>
+
+<label for="current-location">Enter your current location:</label>
+<input type="text" id="current-location" name="current-location"><br><br>
+<button onclick="displayMap()">Get Directions</button>
+<footer>
+  <p>&copy; 2023 DUT ONLINE JOB APPLICATIONS</p>
+</footer>
+</body>
+</html>

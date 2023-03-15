@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Registration Successful</title>
+	<title>Profile Not Found</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
@@ -19,11 +19,6 @@
 			padding: 20px;
 			background-color: #fff;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		}
-		p {
-			text-align: center;
-			margin-top: 20px;
-			color: #555;
 		}
 		a {
 			display: block;
@@ -60,22 +55,26 @@
 		nav li a:hover {
 			background-color: #555;
 		}
+		footer {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
-	<h1>Registration Successful</h1>
-	<nav>
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Profile</a></li>
-			<li><a href="#">Settings</a></li>
-			<li><a href="/selectedFile">Jobs</a></li>
-			<li><a href="/">Logout</a></li>
-		</ul>
-	</nav>
+	<h1>Profile Not Found</h1>
+	
 	<section>
-		<p>Congratulations! Your registration was successful. Please click the link below to login and start using your account.</p>
-		<a href="/">Login Now</a>
+		<p>We're sorry, but we couldn't find your profile. It looks like you don't have an account yet. Please click the link below to register.</p>
+		<a href="/register">Register Now</a>
 	</section>
+	<footer>
+		<p>&copy; 2023 DUT ONLINE JOB APPLICATIONS</p>
+	</footer>
 </body>
 </html>
