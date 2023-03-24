@@ -113,7 +113,7 @@ conn.commit()
 conn.close()"""
 
 myapp = Flask(__name__)
-myapp.config['uploads'] = '/Users/vaishnavteeluck/Documents/Python/LoginApp_WithDB/Templates/uploads'
+myapp.config['uploads'] = 'C:/Users/AMD/Desktop/PBDEPROJ-Main/Python/Python/LoginApp_WithDB/Templates/uploads'
 myapp.secret_key = 'my_secret_key'
 
 
