@@ -784,11 +784,10 @@ def update_admin():
         surname = request.form['surname']
         email = request.form['email']
         cell_num = request.form['cell_num']
-        password = request.form['password']
 
         # update the user's record
-        c.execute("UPDATE users SET Name = ?, Surname = ?, Email = ?, Cell_Num = ?, Password = ? WHERE User_ID = ?", 
-                  (name, surname, email,cell_num, password, user_id))
+        c.execute("UPDATE users SET Name = ?, Surname = ?, Email = ?, Cell_Num = ? WHERE User_ID = ?", 
+                  (name, surname, email,cell_num, user_id))
 
         # commit the changes to the database
         conn.commit()
@@ -802,7 +801,7 @@ def update_admin():
     # if the request method is GET, display the HTML form for updating user data
     else:
         # get the user's current data from the database
-        c.execute("SELECT name, surname, email, cell_num, password FROM users WHERE User_ID = ?", (user_id,))
+        c.execute("SELECT name, surname, email, cell_num FROM users WHERE User_ID = ?", (user_id,))
         user_data = c.fetchone()
 
         # close the database connection
@@ -828,11 +827,10 @@ def update_user():
         surname = request.form['surname']
         email = request.form['email']
         cell_num = request.form['cell_num']
-        password = request.form['password']
 
         # update the user's record
-        c.execute("UPDATE users SET Name = ?, Surname = ?, Email = ?, Cell_Num = ?, Password = ? WHERE User_ID = ?", 
-                  (name, surname, email,cell_num, password, user_id))
+        c.execute("UPDATE users SET Name = ?, Surname = ?, Email = ?, Cell_Num = ? WHERE User_ID = ?", 
+                  (name, surname, email,cell_num, user_id))
 
         # commit the changes to the database
         conn.commit()
@@ -846,7 +844,7 @@ def update_user():
     # if the request method is GET, display the HTML form for updating user data
     else:
         # get the user's current data from the database
-        c.execute("SELECT name, surname, email, cell_num, password FROM users WHERE User_ID = ?", (user_id,))
+        c.execute("SELECT name, surname, email, cell_num FROM users WHERE User_ID = ?", (user_id,))
         user_data = c.fetchone()
 
         # close the database connection

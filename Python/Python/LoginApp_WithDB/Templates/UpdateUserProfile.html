@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Update Admin Information</title>
+    <title>Update User Information</title>
     <style>
-        /* Set the font family and size */
-        body {
+      /* Set the font family and size */
+      body {
         font-family: Arial, sans-serif;
         font-size: 16px;
       }
 
       /* Style the form */
       form {
-        width: 400px;
-        margin: 0 auto;
-      }
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: 0 auto;
+}
 
       /* Style the input fields */
       input[type="text"],
@@ -74,7 +78,14 @@
 			margin-top: 50px;
 			color: #555;
 		}
-
+    form {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: 0 auto;
+}
     
       /* Style the table rows */
       tr {
@@ -139,35 +150,28 @@
 			width: 100%;
 			text-align: center;
 		}
-    form {
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  max-width: 500px;
-  margin: 0 auto;
-}
     </style>
   </head>
+  
   <body>
     <nav>
       <ul>
-        <li><a href="/loggedin">Home</a></li>
-        <li><a href="/updateadminprofile">Profile</a></li>
-        <li><a href="/selectedFile">Jobs</a></li>
-        <li><a href="/applications">Applications</a></li>
+        <li><a href="/loggedinapplicant">Home</a></li>
+        <li><a href="/updateuserprofile">Profile</a></li>
+        <li><a href="/jobstatus">Status</a></li>
+        <li><a href="/availablejobs">Available Jobs</a></li>
         <!--<li><a href="/">Logout</a></li>-->
         <li style="float: right;">
-          <form1 action="/logout" method="post">
+          <form action="/logout" method="post">
             <button type="submit">Logout</button>
-          </form1>
+          </form>
         </li>
-       
+
       </ul>
   
     </nav>
-    <h1>Update Admin Information</h1>
-    <form action="/updateadminprofile" method="POST">
+    <h1>Update User Information</h1>
+    <form action="/updateuserprofile" method="POST">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" value="{{ user_data[0] }}">
       <br>
@@ -179,9 +183,6 @@
       <br>
       <label for="cell_num">Cell Number:</label>
       <input type="text" id="cell_num" name="cell_num" value="{{ user_data[3] }}" maxlength="10" >
-      <br>
-      <label for="password">Password:</label>
-      <input type="text" id="password" name="password" value="{{ user_data[4] }}" maxlength="10" >
       <br>
       <input type="submit" value="Update">
     </form>

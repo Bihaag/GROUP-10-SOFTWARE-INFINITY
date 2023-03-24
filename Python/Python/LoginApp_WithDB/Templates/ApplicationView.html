@@ -1,58 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Update Admin Information</title>
+    <title>Selected Job</title>
     <style>
-        /* Set the font family and size */
-        body {
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-      }
-
-      /* Style the form */
-      form {
-        width: 400px;
-        margin: 0 auto;
-      }
-
-      /* Style the input fields */
-      input[type="text"],
-      input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-      }
-
-      /* Style the submit button */
-      input[type="submit"] {
-        background-color: #4CAF50;
-        color: #fff;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      input[type="submit"]:hover {
-        background-color: #3e8e41;
-      }
-
-      /* Style the headings */
-      h1 {
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 20px;
-      }
-
-      label {
-        font-weight: bold;
-        margin-bottom: 5px;
-        display: block;
-      }
-      table {
+      	body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+      /* Style the table */
+    table {
         border-collapse: collapse;
         width: 100%;
         margin-bottom: 1rem;
@@ -62,6 +18,76 @@
       }
 
       /* Style the table header */
+      th {
+        font-weight: 600;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: middle;
+      }
+      h1 {
+			text-align: center;
+			margin-top: 50px;
+			color: #555;
+		}
+
+      form {
+			max-width: 500px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+      /* Style the table rows */
+      tr {
+        border: 1px solid #dee2e6;
+      }
+
+      /* Style the table cells */
+      td {
+        border: 1px solid #dee2e6;
+        padding: 0.75rem;
+        vertical-align: middle;
+      }
+
+      label {
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      textarea {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      /* style for job details */
+      .job-details {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      .job-details p {
+        margin: 5px 0;
+      }
+
+      .job-details h2 {
+        margin-bottom: 10px;
+      }
+
       th {
         font-weight: 600;
         background-color: #f8f9fa;
@@ -139,14 +165,6 @@
 			width: 100%;
 			text-align: center;
 		}
-    form {
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  max-width: 500px;
-  margin: 0 auto;
-}
     </style>
   </head>
   <body>
@@ -162,32 +180,28 @@
             <button type="submit">Logout</button>
           </form1>
         </li>
-       
+        <li><img src="./Images/The_Durban_University_of_Technology_new_log.png" alt="Logo"></li>
       </ul>
   
     </nav>
-    <h1>Update Admin Information</h1>
-    <form action="/updateadminprofile" method="POST">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" value="{{ user_data[0] }}">
+    <h1>Selected Job</h1>
+
+    
+
+    <form method="POST" action="/updatestatus">
+      <p>Applied Job ID: {{ job_id }}</p>
       <br>
-      <label for="surname">Surname:</label>
-      <input type="text" id="surname" name="surname" value="{{ user_data[1] }}">
-      <br>
-      <label for="email">Email:</label>
-      <input type="text" id="email" name="email" value="{{ user_data[2] }}">
-      <br>
-      <label for="cell_num">Cell Number:</label>
-      <input type="text" id="cell_num" name="cell_num" value="{{ user_data[3] }}" maxlength="10" >
-      <br>
-      <label for="password">Password:</label>
-      <input type="text" id="password" name="password" value="{{ user_data[4] }}" maxlength="10" >
-      <br>
-      <input type="submit" value="Update">
+      <input type="hidden" name="appjob_id" value="{{ job_id }}">
+      <label for="status">Status:</label>
+      <select id="status" name="status">
+    
+      <option value="1" {% if job_status == 'approved' %}selected{% endif %}>Approve</option>
+      <option value="0" {% if job_status == 'rejected' %}selected{% endif %}>Reject</option>
+      </select>
+      <button type="submit">Update Status</button>
     </form>
     <footer>
       <p>&copy; 2023 DUT ONLINE JOB APPLICATIONS</p>
     </footer>
   </body>
 </html>
-

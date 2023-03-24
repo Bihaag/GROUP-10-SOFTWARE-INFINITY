@@ -1,0 +1,149 @@
+<head>
+  <title>Update Job</title>
+  <style>
+ body {
+background-color: #f2f2f2;
+font-family: Arial, sans-serif;
+}
+
+h1 {
+text-align: center;
+margin-top: 50px;
+}
+
+
+
+label {
+display: inline-block;
+margin-bottom: 5px;
+font-weight: bold;
+}
+
+input[type="text"], input[type="file"] {
+display: block;
+width: 100%;
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #ccc;
+box-sizing: border-box;
+}
+
+button[type="submit"] {
+display: block;
+margin-top: 10px;
+padding: 10px;
+background-color: #4CAF50;
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+button[type="submit"]:hover {
+background-color: #4CAF50;
+}
+
+body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			color: #555;
+		}
+		nav {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		nav li {
+			float: left;
+		}
+		nav li a {
+			display: block;
+			color: #fff;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		nav li a:hover {
+			background-color: #555;
+		}
+		section {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		footer {
+		background-color: #333;
+		color: #fff;
+		padding: 5px;
+		flex-shrink: 0;
+		bottom: 0;
+		width: 100%;
+		height: 50px;
+		text-align: center;
+		}
+  </style>
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+    <title>Job Application</title>
+  </head>
+  <body>
+
+    <nav>
+      <ul>
+        <li><a href="/loggedinapplicant">Home</a></li>
+        <li><a href="/updateuserprofile">Profile</a></li>
+        <li><a href="/jobstatus">Status</a></li>
+        <li><a href="/availablejobs">Available Jobs</a></li>
+        <!--<li><a href="/logout"method="post">Logout</a></li>-->
+        <li style="float: right;">
+			<form1 action="/logout" method="post">
+			  <button type="submit">Logout</button>
+			</form1>
+		  </li>
+          
+      </ul>
+    </nav>
+    <section>
+      <h1>Apply for Job</h1>
+      <!--<form action="/apply?select_id={{ select_id }}" method="POST" enctype="multipart/form-data">-->
+		<form method="post" action="{{ url_for('applyjob', jobid=jobid) }}" enctype="multipart/form-data">
+
+		<!--<label for="jobid">Job ID:</label>-->
+        <input type="hidden" name="jobid" value="{{ select_id }}">
+        <br>
+        <label for="cv">CV (PDF):</label>
+        <input type="file" id="cv" name="cv" required>
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+  </section>
+  <footer>
+	<p>&copy; 2023 DUT ONLINE JOB APPLICATIONS</p>
+</footer>
+  </body>
+</html>
+
+
+
+
+
+
+

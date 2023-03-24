@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login Page</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>User Registration</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
@@ -21,13 +20,11 @@
 			background-color: #fff;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		}
-
 		label {
 			display: block;
 			margin-bottom: 10px;
-			font-weight: bold;
+			color: #555;
 		}
-
 		input[type="text"], input[type="email"], input[type="password"] {
 			width: 100%;
 			padding: 10px;
@@ -86,8 +83,6 @@
 		}
 
 
-
-
 		.mySlides {
 			display: none;
 		}
@@ -143,13 +138,10 @@
 				opacity: 1
 			}
 		}
-
 	</style>
 </head>
 <body>
-	<h1>User Login</h1>
-	
-
+	<h1>User Registration</h1>
 	<form>
 		
 		<section class="slideshow-container">
@@ -195,26 +187,22 @@
 	
 			</script>
 	</form>
-	<form action="" method="post">
-		
-		<!--<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Profile</a></li>
-				<li><a href="#">Settings</a></li>
-				<li><a href="/selectedFile">Jobs</a></li>
-				<li><a href="/">Logout</a></li>
-			<form action="/logout" method="post">
-				<li><button type="submit">Logout</button></li>
-			  </form>
-			</ul>
-		</nav> -->
+	<form action="/register" method="post">
 		<label for="name">Name:</label>
 		<input type="text" id="name" name="name" required>
+		
+		<label for="surname">Surname:</label>
+		<input type="text" id="surname" name="surname" required>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+		
+		<label for="cell_num">Cell_Num:</label>
+		<input type="text" id="cell_num" name="cell_num" maxlength="10" required>
 
 		<label for="password">Password:</label>
 		<input type="password" id="password" name="password" required>
-
+		
 		<select name="user_type">
 			<option value="Admin">Admin</option>
 			<option value="Applicant">Applicant</option>
@@ -222,17 +210,13 @@
 		<br>
 		<br>
 		<br>
-		<input type="submit" value="Login">
-		
-		<a href="/register">Register</a>
-
-		
-
+		<input type="submit" value="Register">
+		<a href="/">Login</a>
 
 	</form>
-	
+	<footer>
+		<p>&copy; 2023 DUT ONLINE JOB APPLICATIONS</p>
+	</footer>
 </body>
-<footer>
-	<p>&copy; 2023 DUT ONLINE JOB APPLICATIONS</p>
-</footer>
 </html>
+
